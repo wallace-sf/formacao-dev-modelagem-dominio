@@ -17,6 +17,7 @@ export class Id implements IdProps {
     this._value = value ?? uuid();
     this._isNew = value == null;
     this._validate(this._value);
+    this.diff = this.diff.bind(this);
   }
 
   static get new() {
@@ -39,5 +40,13 @@ export class Id implements IdProps {
     const error = validator.validate();
 
     if (error != null) throw new Error(error);
+  }
+
+  public equals(id: Id): boolean {
+    return this._value === id.value;
+  }
+
+  public diff(id: Id): boolean {
+    return !this.equals(id);
   }
 }

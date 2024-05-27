@@ -1,23 +1,19 @@
-import { Id } from "../shared/Id";
 import { CPF } from "../shared/CPF";
 import { PersonName } from "../shared/PersonName";
+import { Entity, EntityProps } from "../shared/Entity";
 
-interface PersonProps {
-  id?: string;
+interface PersonProps extends EntityProps {
   name?: string;
   cpf?: string;
 }
 
-export class Person {
-  readonly rawProps: PersonProps;
-  readonly id: Id;
+export class Person extends Entity<Person, PersonProps> {
   readonly name: PersonName;
   readonly cpf: CPF;
 
   constructor(props: PersonProps) {
-    this.id = new Id(props.id);
+    super(props);
     this.name = new PersonName(props.name);
     this.cpf = new CPF(props.cpf);
-    this.rawProps = props;
   }
 }

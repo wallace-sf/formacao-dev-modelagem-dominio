@@ -19,3 +19,19 @@ test("shall create new id from existing id", () => {
   expect(id.isNew).toBe(false);
   expect(id.value).toHaveLength(36);
 });
+
+test("shall compare two equals ids", () => {
+  const id = Id.new;
+  const id2 = new Id(id.value);
+
+  expect(id.equals(id2)).toBe(true);
+  expect(id.diff(id2)).toBe(false);
+});
+
+test("shall compare two different ids", () => {
+  const id = Id.new;
+  const id2 = Id.new;
+
+  expect(id.equals(id2)).toBe(false);
+  expect(id.diff(id2)).toBe(true);
+});
