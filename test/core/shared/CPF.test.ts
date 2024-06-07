@@ -55,3 +55,7 @@ test("shall return cpf raw value", () => {
   expect(new CPF("028.777.810-03").value).toBe("02877781003");
   expect(new CPF("088.535.530-06").value).toBe("08853553006");
 });
+
+test("shall return region cpf", () => {
+  expect(new CPF("28001238938").region.value).toBe(9);
+});

@@ -1,5 +1,7 @@
 import { Errors } from "~/core/constants/Errors";
 
+import { RegionCPF } from "./RegionCPF";
+
 export class CPF {
   private readonly _value: string;
 
@@ -11,6 +13,14 @@ export class CPF {
 
   get value(): string {
     return this._value;
+  }
+
+  get region(): RegionCPF {
+    const regionNumber = +this._value[8];
+
+    console.log("regionNumber", regionNumber);
+
+    return new RegionCPF(regionNumber);
   }
 
   get formatted(): string {
