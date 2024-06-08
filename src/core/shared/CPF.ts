@@ -18,8 +18,6 @@ export class CPF {
   get region(): RegionCPF {
     const regionNumber = +this._value[8];
 
-    console.log("regionNumber", regionNumber);
-
     return new RegionCPF(regionNumber);
   }
 

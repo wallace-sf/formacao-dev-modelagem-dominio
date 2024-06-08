@@ -2,7 +2,7 @@ import { CPF } from "../shared/CPF";
 import { PersonName } from "../shared/PersonName";
 import { Entity, EntityProps } from "../shared/Entity";
 
-interface PersonProps extends EntityProps {
+export interface PersonProps extends EntityProps {
   name?: string;
   cpf?: string;
 }
